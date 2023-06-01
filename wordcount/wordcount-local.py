@@ -1,35 +1,35 @@
 #!/usr/bin/python
 
-import os, subprocess
+import os
 import sys
 import glob
-
 import codecs
 
+inputdir = "."
 
-inputdir="."
+if len(sys.argv) >= 2:
+    inputdir = sys.argv[1]
 
-if len(sys.argv) >= 1:
-	inputdir = sys.argv[1]
 
 def processdir(dir):
-
     dirList = glob.glob(dir)
-    wordcount={}
+    wordcount = {}
     for f in dirList:
-        wordcountfile(f,wordcount)
+        wordcountfile(f, wordcount)
     for w in wordcount:
-        print(w,wordcount[w])
+        print(w, wordcount[w])
 
 
 def wordcountfile(f, wordcount):
     file = codecs.open(f, "r", "utf-8")
     for word in file.read().split():
-        if word.lower() not in wordcount:
+        word = word.lower()  # Convert word to lowercase
+        if word not in wordcount:
             wordcount[word] = 1
         else:
             wordcount[word] += 1
     file.close()
-    return wordcount        
+    return wordcount
+
 
 processdir(inputdir)
