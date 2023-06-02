@@ -20,20 +20,23 @@
   
 
 ---
+<div id='introduction'/> 
 
-## 1. Introducción <div id='introduction'/> 
+## 1. Introducción 
 
 En este reto de laboratorio aprendí a crear clusters en AWS y los puse en práctica.
 
 ---
+<div id='problemas'/> 
 
-## 2. Problemas <div id='problemas'/> 
+## 2. Problemas 
 
 Tuve que cambiar un poco el código de 'wordcount-local.py' y documentarme bien acerca de los comandos para poder editarlos con los respectivos permisos.
 
 ---
+<div id='recursos'/> 
 
-## 3. Recursos <div id='recursos'/> 
+## 3. Recursos 
 
 Utilicé los conocimientos dados en el Laboratorio 5 y comandos tomados y adaptados de los siguientes recursos:
 
@@ -44,8 +47,9 @@ Utilicé los conocimientos dados en el Laboratorio 5 y comandos tomados y adapta
 https://www.tablesgenerator.com/markdown_tables
 
 ---
+<div id='desarrollo'/> 
 
-## 4. Desarrollo <div id='desarrollo'/> 
+## 4. Desarrollo 
 
 Estos pasos solo los tuve que realizar una vez:  
 
@@ -76,8 +80,9 @@ aws_session_token=
 ```
 
 ---
+<div id='lab5'/> 
 
-## 5. Laboratorio 5 <div id='lab5'/> 
+## 5. Laboratorio 5 
 
 Crea el cluster usando la interfaz gráfica de AWS:  
 
@@ -108,8 +113,9 @@ python wordcount-mr.py /home/hadoop/LabReto6_TET_PabloMayaV/datasets/gutenberg-s
 ![wordcountFuncional](./images/wordcountFuncinal.jpeg)
 
 ---
+<div id='cluster'/> 
 
-## 6. Creación del cluster mediante AWS CLI <div id='cluster'/> 
+## 6. Creación del cluster mediante AWS CLI 
 
 Se crea el cluster desde la consola con las especificaciones dadas usando AWS CLI:
 ```sh
@@ -124,8 +130,9 @@ ssh -i emr-key.pem hadoop@ec2-44-192-253-171.compute-1.amazonaws.com
 ```
 
 ---
+<div id='mainnode'/> 
 
-## 7. Funcionalidad de la Main Node <div id='mainnode'/> 
+## 7. Funcionalidad de la Main Node 
 
 Instalación de requerimientos:
 ```sh
@@ -163,8 +170,9 @@ hdfs dfs -cat /user/admin/output1/part-00000
 ![DirOutput](./images/DirOutput.jpeg)
 
 ---
+<div id='reto1'/> 
 
-## 8. Reto de programación 1 <div id='reto1'/> 
+## 8. Reto de programación 1 
 
 Para recibir el output se necesita que la carpeta no exista, para testing y errores use este comando para borrar las carpetas del Hadoop:
 ```sh
@@ -224,8 +232,9 @@ hdfs dfs -cat /user/admin/output1-c/part-00000 /user/admin/output1-c/part-00001 
 ![Reto1-c](./images/Reto1-c.jpeg)  
 
 ---
+<div id='reto2'/> 
 
-## 9. Reto de programación 2 <div id='reto2'/> 
+## 9. Reto de programación 2 
 
 a) Por acción, dia-menor-valor, día-mayor-valor:
 ```sh
@@ -275,8 +284,9 @@ hdfs dfs -cat /user/admin/output2-c/part-00000 /user/admin/output2-c/part-00001 
 ![Reto2-c](./images/Reto2-c.jpeg)  
 
 ---
+<div id='reto3'/> 
 
-## 10. Reto de programación 3 <div id='reto3'/> 
+## 10. Reto de programación 3  
 
 a) Número de películas vista por un usuario y su valor promedio de calificación:
 ```sh
