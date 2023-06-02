@@ -1,0 +1,39 @@
+
+Para instalar el AWS CLI use el comando
+ssh'''
+msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+'''
+Tomado de https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+crear carpeta, archivos y poner credenciales fotos
+[default]
+aws_access_key_id=ASIAYDODJ6JPOZHYTYNH
+aws_secret_access_key=lAyCAukOR+P9kJdmdPkIUxtAuGQNqO/t/tZnycwy
+aws_session_token=FwoGZXIvYXdzEKH//////////wEaDAedZKnrUPS1k8JU/CLEAYNg9xYA9JWk3N7lHE1B056oYWBAAvSeQYaI9GOwciIR8p21CwJ2Mx5gC3qN3HzNMxHbgpawUWv7Y/Ir+FLLJt1+I+dFRL92NyXBecUXIXMf6MqYjN6JbQPvQQYPzAkDqGUI5lKbinEBMR/KYagX0xo8DgW5Xf8SzZG6urEPFDMXeaKIFKKwKiHAwXU58Ax71DTxAxczdaGLRjqnvnJjV7SWGw6B9uA2A1hkiEmH8Of5qXVb0FrIGSHj7TZsZu4r8r0P9OcoztLkowYyLacy+cc3RXgr+L1FbQu4qSnaS/CiOYb6ELPd6M1ibA8pYRBFDCypKmbiAP9MyQ==
+
+creacion de la cluster con las especificaciones dadas
+aws emr create-cluster --release-label emr-6.10.0 --instance-type m4.large --instance-count 3 --log-uri s3://pmayav-lab-emr/logs --use-default-roles --ec2-attributes KeyName=emr-key,SubnetId=subnet-01fd4a313d0de3645 --no-termination-protected
+
+conexion con la main 
+ssh -i emr-key.pem hadoop@ec2-3-236-120-46.compute-1.amazonaws.com
+
+instalacion de requerimientos
+sudo yum install python3-pip &&/
+sudo pip3 install mrjob &&/
+sudo yum install git -y
+
+clonar el repo
+git clone https://github.com/pmayavi/LabReto6_TET_PabloMayaV.git
+cd LabReto6_TET_PabloMayaV/wordcount
+
+prueba del codigo
+python wordcount-mr.py /home/hadoop/LabReto6_TET_PabloMayaV/datasets/gutenberg-small/*.txt
+
+creacion de usuario admin
+hdfs dfs -mkdir /user/admin/
+copiar el dataset al usuario
+hdfs dfs -copyFromLocal /home/hadoop/LabReto6_TET_PabloMayaV/datasets/ /user/admin/
+
+
+python wordcount-mr.py hdfs:///user/admin/datasets/gutenberg-small/*.txt -r hadoop --output-dir hdfs:///user/admin/output1
+hdfs dfs -ls -r /user/admin/output1/

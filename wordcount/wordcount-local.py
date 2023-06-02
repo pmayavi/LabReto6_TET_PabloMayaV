@@ -5,6 +5,8 @@ import sys
 import glob
 import codecs
 
+# Editado del original porque tenia errores
+
 inputdir = "."
 
 if len(sys.argv) >= 2:
