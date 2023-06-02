@@ -1,6 +1,8 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
+# Reto 3 - b
+
 class MaxPeliculas(MRJob):
     def mapper(self, _, line):
         for w in line.split():
@@ -12,11 +14,10 @@ class MaxPeliculas(MRJob):
         vistas = sum(values)
         yield None, (vistas, key)
 
-    def encontrarMax(self, _, fechas_y_visualizaciones):
+    def findMax(self, _, vistasFechas):
         vistasMax = 0
         fechaMax = None
-        for fechaVis in fechas_y_visualizaciones:
-            vistas, fecha = fechaVis
+        for vistas, fecha in vistasFechas:
             if vistas > vistasMax:
                 vistasMax = vistas
                 fechaMax = fecha
@@ -26,7 +27,7 @@ class MaxPeliculas(MRJob):
         return [
             MRStep(mapper=self.mapper,
                    reducer=self.reducer),
-            MRStep(reducer=self.encontrarMax)
+            MRStep(reducer=self.findMax)
         ]
 
 if __name__ == '__main__':

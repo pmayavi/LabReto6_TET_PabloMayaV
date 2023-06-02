@@ -1,6 +1,8 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
+# Reto 3 - e
+
 class PeorCalificacion(MRJob):
     def mapper(self, _, line):
         for w in line.split():
@@ -21,7 +23,7 @@ class PeorCalificacion(MRJob):
 
         yield None, (ratingProm, key)
 
-    def encontrarMenor(self, _, values):
+    def findMin(self, _, values):
         menorProm = float('inf')
         menorFecha = None
 
@@ -35,7 +37,7 @@ class PeorCalificacion(MRJob):
     def steps(self):
         return [
             MRStep(mapper=self.mapper, reducer=self.reducer),
-            MRStep(reducer=self.encontrarMenor)
+            MRStep(reducer=self.findMin)
         ]
 
 if __name__ == '__main__':

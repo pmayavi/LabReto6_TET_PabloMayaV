@@ -441,7 +441,12 @@ g) La mejor y peor película evaluada por genero:
 ```sh
 python TopGenero.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-g
 ```
-
+|   Género   |  ID peor pelicula  |  ID mejor pelicula  |
+|------------|-------|-------|
+| suspenso   |  377  |  304  |
+| accion     | 1081  |  95   |
+| religion   |  86   |  98   |
+| deportes   |  274  |  274  |
   
 Para visualizar la data use estos comandos:
 ```sh

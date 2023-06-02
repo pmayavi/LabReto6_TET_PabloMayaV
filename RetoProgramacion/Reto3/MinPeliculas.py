@@ -1,6 +1,8 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
+# Reto 3 - c
+
 class MinPeliculas(MRJob):
     def mapper(self, _, line):
         for w in line.split():
@@ -12,10 +14,10 @@ class MinPeliculas(MRJob):
         vistas = sum(values)
         yield None, (vistas, key)
 
-    def encontrarMin(self, _, fechas_y_visualizaciones):
+    def findMin(self, _, vistasFechas):
         vistasMin = float('inf')
         fechaMin = None
-        for vistas, fecha in fechas_y_visualizaciones:
+        for vistas, fecha in vistasFechas:
             if vistas < vistasMin:
                 vistasMin = vistas
                 fechaMin = fecha
@@ -25,7 +27,7 @@ class MinPeliculas(MRJob):
         return [
             MRStep(mapper=self.mapper,
                    reducer=self.reducer),
-            MRStep(reducer=self.encontrarMin)
+            MRStep(reducer=self.findMin)
         ]
 
 if __name__ == '__main__':

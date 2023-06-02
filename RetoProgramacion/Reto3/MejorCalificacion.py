@@ -1,7 +1,9 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
-class mejorDia(MRJob):
+# Reto 3 - f
+
+class MejorCalificacion(MRJob):
     def mapper(self, _, line):
         for w in line.split():
             filing = w.split(',')
@@ -21,7 +23,7 @@ class mejorDia(MRJob):
 
         yield None, (ratingProm, key)  
 
-    def encontrarMayor(self, _, values):
+    def findMax(self, _, values):
         mayorProm = 0
         mayorFecha = None
 
@@ -35,8 +37,8 @@ class mejorDia(MRJob):
     def steps(self):
         return [
             MRStep(mapper=self.mapper, reducer=self.reducer),
-            MRStep(reducer=self.encontrarMayor)
+            MRStep(reducer=self.findMax)
         ]
 
 if __name__ == '__main__':
-    mejorDia.run()
+    MejorCalificacion.run()
