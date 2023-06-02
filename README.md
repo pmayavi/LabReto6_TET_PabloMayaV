@@ -421,12 +421,13 @@ hdfs dfs -cat /user/admin/output3-e/part-00000 /user/admin/output3-e/part-00001 
 ```
 ![Reto3-e](./images/Reto3-e.jpeg)  
 
+
 f) Día en que mejor evaluación han dado los usuarios:
 ```sh
 python MejorCalificacion.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-f
 ```
-Dia de la mejor calificacion:   2014-03-20  
-Calificacion promedio:          2.63
+Dia de la mejor calificacion:   2014-03-21  
+Calificacion promedio:          3.8
   
 Para visualizar la data use estos comandos:
 ```sh
@@ -435,3 +436,16 @@ hdfs dfs -cat /user/admin/output3-f/part-00000 /user/admin/output3-f/part-00001 
 ```
 ![Reto3-f](./images/Reto3-f.jpeg) 
 
+
+g) La mejor y peor película evaluada por genero:
+```sh
+python TopGenero.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-g
+```
+
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output3-g/
+hdfs dfs -cat /user/admin/output3-g/part-00000 /user/admin/output3-g/part-00001 /user/admin/output3-g/part-00002
+```
+![Reto3-g](./images/Reto3-g.jpeg) 
