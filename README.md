@@ -163,6 +163,7 @@ Para recibir el output se necesita que la carpeta no exista, para testing y erro
 ```sh
 hdfs dfs -rm -r /user/admin/output1-a/
 ```  
+
 a) El salario promedio por Sector Económico (SE):
 ```sh
 python Salario-Sector.py hdfs:///user/admin/datasets/otros/dataempleados.txt -r hadoop --output-dir hdfs:///user/admin/output1-a
@@ -177,7 +178,7 @@ python Salario-Sector.py hdfs:///user/admin/datasets/otros/dataempleados.txt -r 
 Para visualizar la data use estos comandos:
 ```sh
 hdfs dfs -ls -r /user/admin/output1-a/
-hdfs dfs -cat /user/admin/output1-a/part-00000
+hdfs dfs -cat /user/admin/output1-a/part-00000 /user/admin/output1-a/part-00001 /user/admin/output1-a/part-00002
 ```
 ![Reto1-a](./images/Reto1-a.jpeg)  
   
@@ -194,7 +195,7 @@ python Salario.py hdfs:///user/admin/datasets/otros/dataempleados.txt -r hadoop 
 Para visualizar la data use estos comandos:
 ```sh
 hdfs dfs -ls -r /user/admin/output1-b/
-hdfs dfs -cat /user/admin/output1-b/part-00000
+hdfs dfs -cat /user/admin/output1-b/part-00000 /user/admin/output1-b/part-00001 /user/admin/output1-b/part-00002
 ```
 ![Reto1-b](./images/Reto1-b.jpeg)  
   
@@ -210,8 +211,68 @@ python Sector-Empleado.py hdfs:///user/admin/datasets/otros/dataempleados.txt -r
   
 Para visualizar la data use estos comandos:
 ```sh
-python Sector-Empleado.py hdfs:///user/admin/datasets/otros/dataempleados.txt -r hadoop --output-dir hdfs:///user/admin/output1-c
 hdfs dfs -ls -r /user/admin/output1-c/
-hdfs dfs -cat /user/admin/output1-c/part-00000
+hdfs dfs -cat /user/admin/output1-c/part-00000 /user/admin/output1-c/part-00001 /user/admin/output1-c/part-00002
 ```
 ![Reto1-c](./images/Reto1-c.jpeg)  
+
+---
+
+## 9. Reto de programación 2
+
+a) Por acción, dia-menor-valor, día-mayor-valor:
+```sh
+python Salario-Sector.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-a
+```
+| Sector economico | Salario promedio |
+|------------------|------------------|
+| 1212             | 77000.0          |
+| 1234             | 37500.0          |
+| 5434             | 36000.0          |
+| 1412             | 76000.0          |
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output2-a/
+hdfs dfs -cat /user/admin/output2-a/part-00000 /user/admin/output2-a/part-00001 /user/admin/output2-a/part-00002
+```
+![Reto2-a](./images/Reto2-a.jpeg)  
+
+
+b) Listado de acciones que siempre han subido o se mantienen estables:
+```sh
+python Salario-Sector.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-b
+```
+| Sector economico | Salario promedio |
+|------------------|------------------|
+| 1212             | 77000.0          |
+| 1234             | 37500.0          |
+| 5434             | 36000.0          |
+| 1412             | 76000.0          |
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output2-b/
+hdfs dfs -cat /user/admin/output2-b/part-00000 /user/admin/output2-b/part-00001 /user/admin/output2-b/part-00002
+```
+![Reto2-b](./images/Reto2-b.jpeg)  
+
+
+c) DIA NEGRO: la mayor cantidad de acciones tienen el menor valor de acción (DESPLOME):
+```sh
+python Salario-Sector.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-c
+```
+| Sector economico | Salario promedio |
+|------------------|------------------|
+| 1212             | 77000.0          |
+| 1234             | 37500.0          |
+| 5434             | 36000.0          |
+| 1412             | 76000.0          |
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output2-c/
+hdfs dfs -cat /user/admin/output2-c/part-00000 /user/admin/output2-c/part-00001 /user/admin/output2-c/part-00002
+```
+![Reto2-c](./images/Reto2-c.jpeg)  
+
