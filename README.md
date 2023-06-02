@@ -35,6 +35,7 @@ Utilicé los conocimientos dados en el Laboratorio 5 y comandos tomados y adapta
 - [Guía de instalación de AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [Cómo crear y ejecutar un clúster EMR utilizando AWS CLI](https://towardsdatascience.com/how-to-create-and-run-an-emr-cluster-using-aws-cli-3a78977dc7f0#6df6)
 - [Hadoop: Cómo listar archivos y directorios usando HDFS dfs](https://sparkbyexamples.com/apache-hadoop/hadoop-how-to-list-files-and-directories-using-hdfs-dfs/)
+https://www.tablesgenerator.com/markdown_tables
 
 ---
 
@@ -241,12 +242,10 @@ b) Listado de acciones que siempre han subido o se mantienen estables:
 ```sh
 python Acciones-Estables.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-b
 ```
-| Sector economico | Salario promedio |
-|------------------|------------------|
-| 1212             | 77000.0          |
-| 1234             | 37500.0          |
-| 5434             | 36000.0          |
-| 1412             | 76000.0          |
+| Empresa | Comportamiento de acciones |
+|---------|----------------------------|
+| EPM     | Baja o no es estable       |
+| Exito   | Sube o se mantiene estable |
   
 Para visualizar la data use estos comandos:
 ```sh
@@ -260,12 +259,7 @@ c) DIA NEGRO: la mayor cantidad de acciones tienen el menor valor de acción (DE
 ```sh
 python Dia-Negro.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-c
 ```
-| Sector economico | Salario promedio |
-|------------------|------------------|
-| 1212             | 77000.0          |
-| 1234             | 37500.0          |
-| 5434             | 36000.0          |
-| 1412             | 76000.0          |
+Dia Negro: 2015-01-02
   
 Para visualizar la data use estos comandos:
 ```sh
