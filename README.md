@@ -222,14 +222,12 @@ hdfs dfs -cat /user/admin/output1-c/part-00000 /user/admin/output1-c/part-00001 
 
 a) Por acción, dia-menor-valor, día-mayor-valor:
 ```sh
-python Salario-Sector.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-a
+python Min-Max.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-a
 ```
-| Sector economico | Salario promedio |
-|------------------|------------------|
-| 1212             | 77000.0          |
-| 1234             | 37500.0          |
-| 5434             | 36000.0          |
-| 1412             | 76000.0          |
+| Empresa | Menor      | Mayor      |
+|---------|------------|------------|
+| EPM     | 2015-01-02 | 2015-01-01 |
+| Exito   | 2015-01-01 | 2015-01-02 |
   
 Para visualizar la data use estos comandos:
 ```sh
@@ -241,7 +239,7 @@ hdfs dfs -cat /user/admin/output2-a/part-00000 /user/admin/output2-a/part-00001 
 
 b) Listado de acciones que siempre han subido o se mantienen estables:
 ```sh
-python Salario-Sector.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-b
+python Acciones-Estables.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-b
 ```
 | Sector economico | Salario promedio |
 |------------------|------------------|
@@ -260,7 +258,7 @@ hdfs dfs -cat /user/admin/output2-b/part-00000 /user/admin/output2-b/part-00001 
 
 c) DIA NEGRO: la mayor cantidad de acciones tienen el menor valor de acción (DESPLOME):
 ```sh
-python Salario-Sector.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-c
+python Dia-Negro.py hdfs:///user/admin/datasets/otros/dataempresas.txt -r hadoop --output-dir hdfs:///user/admin/output2-c
 ```
 | Sector economico | Salario promedio |
 |------------------|------------------|
