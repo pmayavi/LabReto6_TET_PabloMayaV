@@ -268,3 +268,73 @@ hdfs dfs -cat /user/admin/output2-c/part-00000 /user/admin/output2-c/part-00001 
 ```
 ![Reto2-c](./images/Reto2-c.jpeg)  
 
+---
+
+## 10. Reto de programación 3
+
+a) Número de películas vista por un usuario y su valor promedio de calificación:
+```sh
+python PeliculasUsuarioCalificacion.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-a
+```
+| ID usuario | Rating promedio | Peliculas calificadas |
+|--------|---------|--------|
+| 222    |   5.0   |   1    |
+| 234    |   5.0   |   1    |
+| 246    |   3.0   |   1    |
+| 327    |   5.0   |   1    |
+| 387    |   5.0   |   1    |
+| 465    |   5.0   |   1    |
+| 474    |   4.0   |   1    |
+| 486    |   4.0   |   1    |
+| 51     |   2.0   |   1    |
+| 546    |   2.0   |   1    |
+| 603    |   5.0   |   1    |
+| 768    |   2.0   |   1    |
+| 1      |   4.0   |   1    |
+| 1042   |   4.0   |   1    |
+| 1081   |   1.0   |   1    |
+| 118    |   2.0   |   1    |
+| 16     |   4.0   |   1    |
+| 193    |   4.0   |   1    |
+| 265    |   2.0   |   1    |
+| 274    |   3.0   |   2    |
+| 277    |   4.0   |   1    |
+| 304    |    3.8  |   5    |
+| 346    |   1.0   |   1    |
+| 40     |   3.0   |   1    |
+| 451    |   3.0   |   1    |
+| 796    |   1.0   |   1    |
+| 88     |   4.0   |   1    |
+| 979    |   2.0   |   1    |
+| 1184   |   2.0   |   1    |
+| 194    |   3.0   |   1    |
+| 257    |   2.0   |   1    |
+| 29     |   3.0   |   1    |
+| 302    |   3.0   |   1    |
+| 32     |   4.0   |   1    |
+| 377    |   1.0   |   1    |
+| 392    |   4.0   |   1    |
+| 785    |   3.0   |   1    |
+| 86     |   3.0   |   1    |
+| 95     |   5.0   |   1    |
+| 98     |   4.0   |   1    |
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output3-a/
+hdfs dfs -cat /user/admin/output3-a/part-00000 /user/admin/output3-a/part-00001 /user/admin/output3-a/part-00002
+```
+![Reto3-a](./images/Reto3-a.jpeg)  
+
+a) Número de películas vista por un usuario y su valor promedio de calificación:
+```sh
+python PeliculasUsuarioCalificacion.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-a
+```
+
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output3-a/
+hdfs dfs -cat /user/admin/output3-a/part-00000 /user/admin/output3-a/part-00001 /user/admin/output3-a/part-00002
+```
+![Reto3-a](./images/Reto3-a.jpeg)  
