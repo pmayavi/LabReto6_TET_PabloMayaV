@@ -21,19 +21,19 @@
 
 ---
 
-## 1. Introducción {#introduction}
+## 1. Introducción <introduction>
 
 En este reto de laboratorio aprendí a crear clusters en AWS y los puse en práctica.
 
 ---
 
-## 2. Problemas {#problemas}
+## 2. Problemas <problemas>
 
 Tuve que cambiar un poco el código de 'wordcount-local.py' y documentarme bien acerca de los comandos para poder editarlos con los respectivos permisos.
 
 ---
 
-## 3. Recursos {#recursos}
+## 3. Recursos <recursos>
 
 Utilicé los conocimientos dados en el Laboratorio 5 y comandos tomados y adaptados de los siguientes recursos:
 
@@ -45,7 +45,7 @@ https://www.tablesgenerator.com/markdown_tables
 
 ---
 
-## 4. Desarrollo {#desarrollo}
+## 4. Desarrollo <desarrollo>
 
 Estos pasos solo los tuve que realizar una vez:  
 
@@ -77,7 +77,7 @@ aws_session_token=
 
 ---
 
-## 5. Laboratorio 5 {#lab5}
+## 5. Laboratorio 5 <lab5>
 
 Crea el cluster usando la interfaz gráfica de AWS:  
 
@@ -109,7 +109,7 @@ python wordcount-mr.py /home/hadoop/LabReto6_TET_PabloMayaV/datasets/gutenberg-s
 
 ---
 
-## 6. Creación del cluster mediante AWS CLI {#cluster}
+## 6. Creación del cluster mediante AWS CLI <cluster>
 
 Se crea el cluster desde la consola con las especificaciones dadas usando AWS CLI:
 ```sh
@@ -125,7 +125,7 @@ ssh -i emr-key.pem hadoop@ec2-44-192-253-171.compute-1.amazonaws.com
 
 ---
 
-## 7. Funcionalidad de la Main Node {#mainnode}
+## 7. Funcionalidad de la Main Node <mainnode>
 
 Instalación de requerimientos:
 ```sh
@@ -164,7 +164,7 @@ hdfs dfs -cat /user/admin/output1/part-00000
 
 ---
 
-## 8. Reto de programación 1 {#reto1}
+## 8. Reto de programación 1 <reto1>
 
 Para recibir el output se necesita que la carpeta no exista, para testing y errores use este comando para borrar las carpetas del Hadoop:
 ```sh
@@ -225,7 +225,7 @@ hdfs dfs -cat /user/admin/output1-c/part-00000 /user/admin/output1-c/part-00001 
 
 ---
 
-## 9. Reto de programación 2 {#reto2}
+## 9. Reto de programación 2 <reto2>
 
 a) Por acción, dia-menor-valor, día-mayor-valor:
 ```sh
@@ -276,7 +276,7 @@ hdfs dfs -cat /user/admin/output2-c/part-00000 /user/admin/output2-c/part-00001 
 
 ---
 
-## 10. Reto de programación 3 {#reto3}
+## 10. Reto de programación 3 <reto3>
 
 a) Número de películas vista por un usuario y su valor promedio de calificación:
 ```sh
