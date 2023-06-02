@@ -326,15 +326,43 @@ hdfs dfs -cat /user/admin/output3-a/part-00000 /user/admin/output3-a/part-00001 
 ```
 ![Reto3-a](./images/Reto3-a.jpeg)  
 
-a) Número de películas vista por un usuario y su valor promedio de calificación:
+b) Día en que más películas se han visto:
 ```sh
-python PeliculasUsuarioCalificacion.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-a
+python MaxPeliculas.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-b
+```
+Dia mas visto:      2014-03-20  
+Peliculas vistas:   11
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output3-b/
+hdfs dfs -cat /user/admin/output3-b/part-00000 /user/admin/output3-b/part-00001 /user/admin/output3-b/part-00002
+```
+![Reto3-b](./images/Reto3-b.jpeg)  
+
+c) Día en que menos películas se han visto:
+```sh
+python MinPeliculas.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-c
+```
+Dia menos visto:    2014-03-23
+Peliculas vistas:   5
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output3-c/
+hdfs dfs -cat /user/admin/output3-c/part-00000 /user/admin/output3-c/part-00001 /user/admin/output3-c/part-00002
+```
+![Reto3-c](./images/Reto3-c.jpeg)  
+
+d) Número de usuarios que ven una misma película y el rating promedio:
+```sh
+python CalificacionPeliculas.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-d
 ```
 
   
 Para visualizar la data use estos comandos:
 ```sh
-hdfs dfs -ls -r /user/admin/output3-a/
-hdfs dfs -cat /user/admin/output3-a/part-00000 /user/admin/output3-a/part-00001 /user/admin/output3-a/part-00002
+hdfs dfs -ls -r /user/admin/output3-d/
+hdfs dfs -cat /user/admin/output3-d/part-00000 /user/admin/output3-d/part-00001 /user/admin/output3-d/part-00002
 ```
-![Reto3-a](./images/Reto3-a.jpeg)  
+![Reto3-c](./images/Reto3-c.jpeg)  
