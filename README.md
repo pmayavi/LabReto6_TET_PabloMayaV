@@ -1,11 +1,11 @@
-# Reto de programación N1
+# **Reto de programacion N1**
 
 **Curso:** Tópicos Especiales en Telemática <br>
-**Título:** Comunicación entre Procesos Remotos: gRPC.
+**Título:** Comunicación entre Procesos Remotos: gRPC.<br>
 
----
+*******
 
-## Tabla de Contenido
+**Tabla de Contenido**
 
 1. [Introducción](#introduction)
 2. [Problemas](#problemas)
@@ -13,90 +13,97 @@
 4. [Desarrollo](#development) 
 5. [Despliegue](#deployment) <br>
 
----
+*******
 
-## 1. Introducción
+<div id='introduction'/> 
 
-En este reto de laboratorio aprendí a crear clusters en AWS y los puse en práctica.
+### **1. Introducción**
 
----
+En este reto laboratorio aprendi a crear clusters en AWS, y los puse en practica. 
 
-## 2. Problemas
+*******
 
-Tuve que cambiar un poco el código de 'wordcount-local.py' y documentarme bien acerca de los comandos para poder editarlos con los respectivos permisos.
+<div id='problemas'/> 
 
----
+### **2. Problemas**
 
-## 3. Recursos
+Tuve que cambiar un poco el codigo de wordcount-local.py y documentarme bien acerca de los comandos para poder editarlos con los respectivos permisos.
 
-Utilicé los conocimientos dados en el Laboratorio 5 y comandos tomados y adaptados de:
-- [Repositorio del Laboratorio N6-MapReduce](https://github.com/ST0263/st0263-2023-1/tree/main/Laboratorio%20N6-MapReduce)
-- [Guía de instalación de AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-- [Cómo crear y ejecutar un clúster EMR utilizando AWS CLI](https://towardsdatascience.com/how-to-create-and-run-an-emr-cluster-using-aws-cli-3a78977dc7f0#6df6)
-- [Hadoop: Cómo listar archivos y directorios usando HDFS dfs](https://sparkbyexamples.com/apache-hadoop/hadoop-how-to-list-files-and-directories-using-hdfs-dfs/)
+*******
 
----
+<div id='resources'/> 
 
-## 4. Desarrollo
+### **3. Recursos**
+
+Utilice los conocimientos dados en el Laboratorio 5 y comandos tomados y adaptados de:
+https://github.com/ST0263/st0263-2023-1/tree/main/Laboratorio%20N6-MapReduce
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+https://towardsdatascience.com/how-to-create-and-run-an-emr-cluster-using-aws-cli-3a78977dc7f0#6df6
+https://sparkbyexamples.com/apache-hadoop/hadoop-how-to-list-files-and-directories-using-hdfs-dfs/
+
+*******
+
+<div id='development'/>  
+
+### **4. Desarrollo**
 
 Estos pasos solo los tuve que realizar una vez:  
 
-Creación del S3:
-![S3](./images/S3.png)
+Creacion del S3:
+![S3](https://raw.githubusercontent.com/pmayavi/LabReto6_TET_PabloMayaV/main/images/S3.png)
 
-Edición del security group de la Node Primaria/Master para que reciba SSH de todos lados:
-![securitySSH](./images/securitySSH.png)
+Edicion del security group de la Node Primaria/Master para que reciba SSH de todos lados:
+![securitySSH](https://raw.githubusercontent.com/pmayavi/LabReto6_TET_PabloMayaV/main/images/securitySSH.png)
 
-Para instalar el AWS CLI, usa el siguiente comando:
-'''sh
+Para instalar el AWS CLI use el comando
+```sh
 msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
-'''
-Tomado de [Guía de instalación de AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-![AWSCLIinstall](./images/AWSCLIinstall.jpeg)
+```
+Tomado de https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+![AWSCLIinstall](https://raw.githubusercontent.com/pmayavi/LabReto6_TET_PabloMayaV/main/images/AWSCLIinstall.jpeg)
 
-Se necesita crear una carpeta en el directorio root del usuario llamada '.aws' y dentro de ella se crean 2 archivos sin extensión llamados 'credentials' y 'config':
+Se necesita crear una carpeta en el directorio root del usuario llamada '.aws' y en ella se crean 2 archivos sin extencion llamados credentials y config
 
-![AWSCredentials](./images/AWSCredentials.png)
+![AWSCredentials](https://raw.githubusercontent.com/pmayavi/LabReto6_TET_PabloMayaV/main/images/AWSCredentials.png)
 
-'''plaintext
+```sh
 [default]
 aws_access_key_id=
 aws_secret_access_key=
 aws_session_token=
-'''
+```
 
----
+*******
 
-## 5. Laboratorio 5
+<div id='lab5'/>  
 
-Crea el cluster usando la interfaz gráfica de AWS:
+### **5. Laboratorio 5**
 
-![Lab5-1](./images/Lab5-1.png)
-![Lab5-2](./images/Lab5-2.png)
-![Lab5-3](./images/Lab5-3.png)
-![Lab5-4](./images/Lab5-4.png)
+Cree el cluster usando la interfaz grafica de AWS:
 
-Instalación de requerimientos:
-'''sh
-sudo yum install python3-pip &&
-sudo pip3 install mrjob &&
+![Lab5-1](https://raw.githubusercontent.com/pmayavi/LabReto6_TET_PabloMayaV/main/images/Lab5-1.png)
+![Lab5-2](https://raw.githubusercontent.com/pmayavi/LabReto6_TET_PabloMayaV/main/images/Lab5-2.png)
+![Lab5-3](https://raw.githubusercontent.com/pmayavi/LabReto6_TET_PabloMayaV/main/images/Lab5-3.png)
+![Lab5-4](https://raw.githubusercontent.com/pmayavi/LabReto6_TET_PabloMayaV/main/images/Lab5-4.png)
+
+Instalacion de requerimientos:
+```sh
+sudo yum install python3-pip &&/
+sudo pip3 install mrjob &&/
 sudo yum install git -y
-'''
+```
 
 Clonar el repositorio:
-'''sh
+```sh
 git clone https://github.com/pmayavi/LabReto6_TET_PabloMayaV.git
 cd LabReto6_TET_PabloMayaV/wordcount
-'''
+```
 
-Prueba del código:
-'''sh
+Prueba del codigo:
+```sh
 python wordcount-mr.py /home/hadoop/LabReto6_TET_PabloMayaV/datasets/gutenberg-small/*.txt
-'''
-![wordcountFuncinal](./images/wordcountFuncinal.jpeg)
-
----
-
+```
+![wordcountFuncinal](https://raw.githubusercontent.com/pmayavi/LabReto6_TET_PabloMayaV/main/images/wordcountFuncinal.jpeg)
 
 *******
 <div id='awscli'/>  
