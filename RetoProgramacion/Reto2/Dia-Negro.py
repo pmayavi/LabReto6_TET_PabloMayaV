@@ -10,7 +10,7 @@ class diaNegro(MRJob):
     def reducer(self, key, values):
         precios = list(values)
         precioMin = min(precios, key=lambda x: x[0])
-        yield precioMin[1], precioMin[0]
+        yield precioMin[1], 1
 
     def preciosMalos(self, key, values):
         count = sum(values)
