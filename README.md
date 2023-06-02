@@ -159,4 +159,59 @@ hdfs dfs -cat /user/admin/output1/part-00000
 
 ## 8. Reto de programación 1
 
-
+Para recibir el output se necesita que la carpeta no exista, para testing y errores use este comando para borrar las carpetas del Hadoop:
+```sh
+hdfs dfs -rm -r /user/admin/output1-a/
+```  
+a) El salario promedio por Sector Económico (SE):
+```sh
+python Salario-Sector.py hdfs:///user/admin/datasets/otros/dataempleados.txt -r hadoop --output-dir hdfs:///user/admin/output1-a
+```
+| Sector economico | Salario promedio |
+|------------------|------------------|
+| 1212             | 77000.0          |
+| 1234             | 37500.0          |
+| 5434             | 36000.0          |
+| 1412             | 76000.0          |
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output1-a/
+hdfs dfs -cat /user/admin/output1-a/part-00000
+```
+![Reto1-a](./images/Reto1-a.jpeg)  
+  
+b) El salario promedio por Empleado:
+```sh
+python Salario.py hdfs:///user/admin/datasets/otros/dataempleados.txt -r hadoop --output-dir hdfs:///user/admin/output1-b
+```
+| ID del empleado | Salario promedio |
+|-----------------|------------------|
+| 3237            | 40000.0          |
+| 1115            | 76500.0          |
+| 3233            | 35500.0          |
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output1-b/
+hdfs dfs -cat /user/admin/output1-b/part-00000
+```
+![Reto1-b](./images/Reto1-b.jpeg)  
+  
+c) Número de SE por Empleado que ha tenido a lo largo de la estadística:
+```sh
+python Sector-Empleado.py hdfs:///user/admin/datasets/otros/dataempleados.txt -r hadoop --output-dir hdfs:///user/admin/output1-c
+```
+| ID del empleado | Numero de SE |
+|-----------------|--------------|
+| 3237            | 1            |
+| 1115            | 2            |
+| 3233            | 2            |
+  
+Para visualizar la data use estos comandos:
+```sh
+python Sector-Empleado.py hdfs:///user/admin/datasets/otros/dataempleados.txt -r hadoop --output-dir hdfs:///user/admin/output1-c
+hdfs dfs -ls -r /user/admin/output1-c/
+hdfs dfs -cat /user/admin/output1-c/part-00000
+```
+![Reto1-c](./images/Reto1-c.jpeg)  
