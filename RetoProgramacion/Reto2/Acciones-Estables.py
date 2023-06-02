@@ -17,12 +17,11 @@ class listaAcciones(MRJob):
         inc = True
 
         for _, precio in sorted_values:
-            print(sorted_values)
-            if precioAnt is not None and precio < previous_price:
+            if precioAnt is not None and precio < precioAnt:
                 inc = False
                 break
 
-            previous_price = precio
+            precioAnt = precio
 
         if inc:
             yield comp, 'Sube o se mantiene estable'
