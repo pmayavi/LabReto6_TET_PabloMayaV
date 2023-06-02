@@ -1,6 +1,6 @@
 from mrjob.job import MRJob
 
-class ratings(MRJob):
+class CalificacionPeliculas(MRJob):
     def mapper(self, _, line):
         for w in line.split():
             filing = w.split(',')
@@ -19,5 +19,6 @@ class ratings(MRJob):
         ratingProm = ratingTotal / count
 
         yield key, (ratingProm,count)
+        
 if __name__ == '__main__':
-    ratings.run()
+    CalificacionPeliculas.run()

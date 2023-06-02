@@ -1,6 +1,6 @@
 from mrjob.job import MRJob
 
-class estPeliculaExcta(MRJob):
+class PeliculasUsuarioCalificacion(MRJob):
     def mapper(self, _, line):
         for w in line.split():
             filing = w.split(',')
@@ -21,4 +21,4 @@ class estPeliculaExcta(MRJob):
         yield key, (ratingProm,count)
 
 if __name__ == '__main__':
-    estPeliculaExcta.run()
+    PeliculasUsuarioCalificacion.run()

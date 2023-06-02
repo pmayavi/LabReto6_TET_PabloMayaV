@@ -1,7 +1,7 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
-class PeorCalificacion(MRJob):
+class mejorDia(MRJob):
     def mapper(self, _, line):
         for w in line.split():
             filing = w.split(',')
@@ -19,24 +19,24 @@ class PeorCalificacion(MRJob):
 
         ratingProm = ratingTotal / count
 
-        yield None, (ratingProm, key)
+        yield None, (ratingProm, key)  
 
-    def encontrarMenor(self, _, values):
-        menorProm = float('inf')
-        menorFecha = None
+    def encontrarMayor(self, _, values):
+        mayorProm = 0
+        mayorFecha = None
 
         for ratingProm, fecha in values:
-            if ratingProm < menorProm:
-                menorProm = ratingProm
-                menorFecha = fecha
+            if ratingProm > mayorProm:
+                mayorProm = ratingProm
+                mayorFecha = fecha
 
-        yield menorFecha, menorProm
+        yield mayorFecha, mayorProm
 
     def steps(self):
         return [
             MRStep(mapper=self.mapper, reducer=self.reducer),
-            MRStep(reducer=self.encontrarMenor)
+            MRStep(reducer=self.encontrarMayor)
         ]
 
 if __name__ == '__main__':
-    PeorCalificacion.run()
+    mejorDia.run()

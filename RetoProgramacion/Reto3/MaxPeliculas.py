@@ -1,7 +1,7 @@
 from mrjob.job import MRJob
 from mrjob.step import MRStep
 
-class mayorDia(MRJob):
+class MaxPeliculas(MRJob):
     def mapper(self, _, line):
         for w in line.split():
             filing = w.split(',')
@@ -30,4 +30,4 @@ class mayorDia(MRJob):
         ]
 
 if __name__ == '__main__':
-    mayorDia.run()
+    MaxPeliculas.run()

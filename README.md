@@ -358,11 +358,80 @@ d) Número de usuarios que ven una misma película y el rating promedio:
 ```sh
 python CalificacionPeliculas.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-d
 ```
-
+|  ID Pelicula |  Rating promedio |  Usuarios que la vieron |
+|--------|---------|--------|
+| 102    |   2.0   |   1    |
+| 186    |   3.0   |   1    |
+| 201    |   2.0   |   1    |
+| 210    |   3.0   |   1    |
+| 225    |   4.0   |   1    |
+| 234    |   2.0   |   1    |
+| 276    |   2.0   |   2    |
+| 291    |   3.0   |   2    |
+| 303    |   3.0   |   1    |
+| 6      |   3.0   |   1    |
+| 10     |   4.0   |   1    |
+| 115    |   2.0   |   1    |
+| 160    |   5.0   |   1    |
+| 166    |   1.0   |   1    |
+| 181    |   1.0   |   1    |
+| 196    |   3.5   |   2    |
+| 22     |   1.0   |   1    |
+| 244    |   3.25  |   4    |
+| 253    |   5.0   |   1    |
+| 286    |   5.0   |   1    |
+| 298    |   4.0   |   1    |
+| 301    |   4.0   |   1    |
+| 7      |   4.0   |   1    |
+| 97     |   3.0   |   1    |
+| 119    |   4.0   |   1    |
+| 122    |   5.0   |   1    |
+| 167    |   4.0   |   1    |
+| 194    |   2.0   |   1    |
+| 200    |   5.0   |   1    |
+| 278    |   5.0   |   1    |
+| 287    |   5.0   |   1    |
+| 290    |   4.0   |   1    |
+| 299    |   4.0   |   1    |
+| 305    |   3.0   |   1    |
+| 308    |   4.0   |   1    |
+| 38     |   5.0   |   1    |
+| 50     |   3.0   |   1    |
+| 62     |   2.0   |   1    |
+| 95     |   2.0   |   1    |
   
 Para visualizar la data use estos comandos:
 ```sh
 hdfs dfs -ls -r /user/admin/output3-d/
 hdfs dfs -cat /user/admin/output3-d/part-00000 /user/admin/output3-d/part-00001 /user/admin/output3-d/part-00002
 ```
-![Reto3-c](./images/Reto3-c.jpeg)  
+![Reto3-d](./images/Reto3-d.jpeg)  
+
+e) Día en que peor evaluación en promedio han dado los usuarios:
+```sh
+python PeorCalificacion.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-e
+```
+Dia de la peor calificacion:    2014-03-20  
+Calificacion promedio:          2.63
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output3-e/
+hdfs dfs -cat /user/admin/output3-e/part-00000 /user/admin/output3-e/part-00001 /user/admin/output3-e/part-00002
+```
+![Reto3-e](./images/Reto3-e.jpeg)  
+
+f) Día en que mejor evaluación han dado los usuarios:
+```sh
+python MejorCalificacion.py hdfs:///user/admin/datasets/otros/datapeliculas.txt -r hadoop --output-dir hdfs:///user/admin/output3-f
+```
+Dia de la mejor calificacion:   2014-03-20  
+Calificacion promedio:          2.63
+  
+Para visualizar la data use estos comandos:
+```sh
+hdfs dfs -ls -r /user/admin/output3-f/
+hdfs dfs -cat /user/admin/output3-f/part-00000 /user/admin/output3-f/part-00001 /user/admin/output3-f/part-00002
+```
+![Reto3-f](./images/Reto3-f.jpeg) 
+
